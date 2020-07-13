@@ -1,6 +1,6 @@
-const express = require('express')
-const cors = require('cors')
-const mongoose = require('mongoose')
+const express = require('express') //lightwight web framework
+const cors = require('cors') //allows AJAX requests to skip same-origin policy
+const mongoose = require('mongoose') //middleman between node.js and MongoDB -- ORM
 
 require('dotenv').config()
 
@@ -14,7 +14,7 @@ const uri = process.env.ATLAS_URI
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true, //to avoid depreciated server discovery and monitoring engine
 })
 const connection = mongoose.connection
 
