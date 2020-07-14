@@ -22,6 +22,16 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully')
 })
 
+app.get('/', (req, res) => {
+  res.send('This is working')
+})
+
+const exerciseRouter = require('./routes/exercises')
+const userRouter = require('./routes/users')
+
+// app.use('/exercises', exerciseRouter)
+app.use('/users', userRouter) //routers are added as middleware
+
 app.listen(port, () => {
   console.log(`App is listening on port: ${port}`)
 })
