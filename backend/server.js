@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 const exerciseRouter = require('./routes/exercises')
 const userRouter = require('./routes/users')
 
-// app.use('/exercises', exerciseRouter)
+app.use('/exercises', exerciseRouter)
 app.use('/users', userRouter) //routers are added as middleware
 
 app.listen(port, () => {
