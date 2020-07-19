@@ -23,10 +23,16 @@ router.route('/add').post((req, res) => {
 
   newExercise
     .save()
-    .then(() => {
-      res.status(201).json('Exercise added!')
-    })
+    .then(() => res.status(201).json('Exercise added!'))
     .catch((err) => res.status(400).json('Error ' + err))
 })
+
+router.route('/:id').get((req, res) => {
+  Exercise.findById(req.params.id)
+    .then((exercise) => res.json(exercise))
+    .catch((err) => res.status(400).json('Error ' + err))
+})
+
+
 
 module.exports = router
